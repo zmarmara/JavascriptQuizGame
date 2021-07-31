@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="A Javascript Quiz! Test you knowledge with Javascript!"/>
+  <!-- minify -->
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+  <!-- latest -->
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <!-- core style only -->
+  <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Javascript Quiz: How well do you know Javascript?</title>
+  </head>
+  <body>
+    <section class="nes-container with-title">
+    <h3 class="title">How well do you know JS?</h3>
+    <section class="message -right"> 
+      <div id="question" class="nes-balloon from-right"><p>Start guessing...</p><button class="nes-btn is-success" type="button" onclick="start()">I want to play!</button></div>
+    </section> 
+      <div class="nes-container from-left is-rounded is-dark">
+        <input type="text" id="answer" class="nes-input" value="" disabled/>
+        <button class="nes-btn is-disabled" id="checkAnswer" type="button">Check your answer!</button>
+      </div>
+      <section class="message -left cat"> 
+      <div id="message" class="nes-balloon from-right">
+      <p class="nes-text is-primary">Shall we play?</p>
+    </div>
+    <div class="cat"><i class="nes-octocat animate"></i></div>
+      </section>
+    </section>
+    <script src="script.js"></script>
+  </html>
+</html>
