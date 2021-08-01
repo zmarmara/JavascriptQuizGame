@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 //Add as many questions & answers as you like
 
@@ -8,17 +8,19 @@ let questions = {
   Q3: `0==[], true or false?`,
   Q4: `0==="0", true or false?`,
   Q5: `0=="0", true or false?`,
-  Q6: `var myVar = "cat";
+  Q6: `let myVar = "cat";
        parseInt(myVar); What is the result?`,
+  Q7: `console.log(...[1,2,3]) outputs...`,
 };
 
 let answers = {
-  Q1: '44',
-  Q2: '0',
-  Q3: 'true',
-  Q4: 'false',
-  Q5: 'true',
-  Q6: 'NaN',
+  Q1: "44",
+  Q2: "0",
+  Q3: "true",
+  Q4: "false",
+  Q5: "true",
+  Q6: "NaN",
+  Q7: "1 2 3",
 };
 
 let messages = {
@@ -32,21 +34,21 @@ let count = 0;
 
 function test() {
   //check answer
-  let answer = document.getElementById('answer').value;
+  let answer = document.getElementById("answer").value;
   //no answer
   if (!answer) {
-    document.getElementById('message').innerHTML = messages.msgStart;
+    document.getElementById("message").innerHTML = messages.msgStart;
   }
   //success
   if (answer == Object.values(answers)[count]) {
-    document.getElementById('message').innerHTML = messages.msgWin;
+    document.getElementById("message").innerHTML = messages.msgWin;
   }
   //fail
   if (answer !== Object.values(answers)[count]) {
-    document.getElementById('message').innerHTML = messages.msgFail;
+    document.getElementById("message").innerHTML = messages.msgFail;
   }
   //clear input
-  document.getElementById('answer').value = '';
+  document.getElementById("answer").value = "";
   //next question
   count++;
   newQuestion();
@@ -55,10 +57,10 @@ function test() {
 function newQuestion() {
   //Input question
   if (count < Object.values(questions).length) {
-    document.getElementById('question').innerHTML =
+    document.getElementById("question").innerHTML =
       Object.values(questions)[count];
   } else {
-    document.getElementById('message').innerHTML = messages.msgEnd;
+    document.getElementById("message").innerHTML = messages.msgEnd;
     reset();
   }
 }
@@ -66,21 +68,21 @@ function newQuestion() {
 //Object.values(questions)
 function start() {
   //Start game - enable inputs
-  document.getElementById('checkAnswer').classList.remove('is-disabled');
-  document.getElementById('answer').disabled = false;
-  document.getElementById('checkAnswer').addEventListener('click', test);
+  document.getElementById("checkAnswer").classList.remove("is-disabled");
+  document.getElementById("answer").disabled = false;
+  document.getElementById("checkAnswer").addEventListener("click", test);
   //Refresh jokes
-  document.getElementById('message').innerHTML = messages.msgStart;
+  document.getElementById("message").innerHTML = messages.msgStart;
   //input question
   newQuestion();
 }
 
 function reset() {
   count = 0;
-  document.getElementById('checkAnswer').classList.add('is-disabled');
-  document.getElementById('answer').disabled = true;
-  document.getElementById('checkAnswer').removeEventListener('click', test);
+  document.getElementById("checkAnswer").classList.add("is-disabled");
+  document.getElementById("answer").disabled = true;
+  document.getElementById("checkAnswer").removeEventListener("click", test);
   document.getElementById(
-    'question'
+    "question"
   ).innerHTML = `<p>I really can't do this anymore.</p><button class="nes-btn is-warning" type="button" onclick="start()">Don't play THIS again</button>`;
 }
